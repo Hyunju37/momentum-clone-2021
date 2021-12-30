@@ -17,6 +17,11 @@ function deleteToDo(event) {
   saveToDos();
 }
 
+function doneTask(event) {
+  const li = event.target.parentElement;
+  li.classList.add("finish");
+}
+
 function paintToDo(newTodo) {
   const li = document.createElement("li");
   li.id = newTodo.id;
@@ -25,8 +30,13 @@ function paintToDo(newTodo) {
   const button = document.createElement("button");
   button.innerText = "❌";
   button.addEventListener("click", deleteToDo);
+  const done = document.createElement("button");
+  done.innerText = "✔";
+  done.addEventListener("click", doneTask);
+
   li.appendChild(span);
   li.appendChild(button);
+  li.appendChild(done);
   toDoList.appendChild(li);
 }
 
