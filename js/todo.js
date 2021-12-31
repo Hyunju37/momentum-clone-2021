@@ -19,9 +19,11 @@ function deleteToDo(event) {
 
 function doneTask(event) {
   const li = event.target.parentElement;
-  li.classList.add("finish");
-  toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
-  saveToDos();
+  if (li.classList.contains("finish")) {
+    li.classList.remove("finish");
+  } else {
+    li.classList.add("finish");
+  }
 }
 
 function paintToDo(newTodo) {
