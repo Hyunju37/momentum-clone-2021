@@ -20,6 +20,8 @@ function deleteToDo(event) {
 function doneTask(event) {
   const li = event.target.parentElement;
   li.classList.add("finish");
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+  saveToDos();
 }
 
 function paintToDo(newTodo) {
